@@ -1,0 +1,5 @@
+ROOT -> S .
+S -> N VP
+NP -> DET NN
+NP -> NP PP
+PP -> IN NP

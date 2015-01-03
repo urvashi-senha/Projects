@@ -1,0 +1,75 @@
+
+from Queue import *
+
+queue = Queue(maxsize=0)
+stack = []
+
+#sentence = 'Red_JJ figures_NN on_IN the_DET screen_NN indicated_VB falling_JJ stocks_NN'
+#sentence = 'The_DET man_NN saw_VB the_DET girl_NN at_IN the_DET party_NN'
+#sentence = 'The_DET man_NN at_IN the_DET party_NN saw_VB the_DET girl_NN'
+
+#rules = ['NP -> JJ NN','NP -> DET NN','PP -> IN NP','VP -> VB NP']
+rules = ['NP -> NN PSPP','PSPP -> NN PSP','VP -> VP VAUX','VP -> VM VAUX']
+
+sent = sentence.split()
+
+
+for i in sent:
+    	tu = ['None' , i]
+	queue.put(tu)
+
+#print queue
+stack.append(queue.get())
+stack_head = stack[-1][1].split('_')[1]
+queue_head = None
+
+while not queue.empty():
+   
+   temp = queue.get()
+   queue_head = temp[0]
+   qt = str(temp[1]).split('_')[1]
+   
+   flag = 0
+   for rule in rules:
+	l,r = rule.split(' -> ')
+	l = l.strip()
+	r = r.split()
+	if stack_head == r[0].strip() and qt == r[1].strip():
+	    flag = 1
+	    temp_tu = []
+	    temp_tu.append(l)
+	    temp_tu.append(stack[-1][1])
+	    temp_tu.append(temp[1])
+	    stack.pop()
+	    flag2 = 0
+	    if len(stack) > 0 :
+		 stack_temp = stack[-1]
+		 stack_temp_head = stack_temp[1].split('_')[1]
+#		 print stack_temp_head, l
+		 for rule2 in rules:
+			l2,r2 = rule2.split(' -> ')
+			l2 = l2.strip()
+			r2 = r2.split()
+			if stack_temp_head == r2[0].strip() and l == r2[1].strip():
+			    temp_tu2 = []
+			    temp_tu2.append(l2)
+			    temp_tu2.append(stack_temp[1])
+			    temp_tu2.append(temp_tu)
+			    stack.pop()
+			    stack.append(temp_tu2)
+			    stack_head = l2
+			    flag2 =1
+	    if flag2 == 0:
+	     stack.append(temp_tu)
+	     stack_head = l
+   if flag==0:
+       stack.append(temp)
+       stack_head = qt
+
+print stack
+    
+    
+
+
+
+
