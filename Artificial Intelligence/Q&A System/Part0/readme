@@ -1,0 +1,65 @@
+Urvashi Senha
+201225020
+
+run build.py to get dataset
+python build.py
+
+python code_new.py
+
+
+|-- build.py
+|-- build.py~
+|-- code_new_1.py
+|-- code_new.py
+|-- code_new.py~
+|-- dataset
+|   |-- match1
+|   |   |-- details.txt
+|   |   |-- odi1_inn1_bat.txt
+|   |   |-- odi1_inn1_bowl.txt
+|   |   |-- odi1_inn2_bat.txt
+|   |   `-- odi1_inn2_bowl.txt
+|   |-- match2
+|   |   |-- details.txt
+|   |   |-- odi2_inn1_bat.txt
+|   |   |-- odi2_inn1_bowl.txt
+|   |   |-- odi2_inn2_bat.txt
+|   |   `-- odi2_inn2_bowl.txt
+|   |-- match3
+|   |   |-- details.txt
+|   |   |-- odi3_inn1_bat.txt
+|   |   |-- odi3_inn1_bowl.txt
+|   |   |-- odi3_inn2_bat.txt
+|   |   `-- odi3_inn2_bowl.txt
+|   |-- match4
+|   |   |-- details.txt
+|   |   |-- odi4_inn1_bat.txt
+|   |   |-- odi4_inn1_bowl.txt
+|   |   |-- odi4_inn2_bat.txt
+|   |   `-- odi4_inn2_bowl.txt
+|   |-- match5
+|   |   |-- details.txt
+|   |   |-- odi5_inn1_bat.txt
+|   |   |-- odi5_inn1_bowl.txt
+|   |   |-- odi5_inn2_bat.txt
+|   |   `-- odi5_inn2_bowl.txt
+|   `-- player_profile
+|       |-- indian_players_profile.txt
+|       |-- nz_players_profile.txt
+|       `-- nz_players_profile.txt~
+|-- dict_func.py
+|-- dict_func.pyc
+|-- make_model.py
+|-- make_model.pyc
+|-- new.py
+|-- new.py~
+|-- new.pyc
+|-- out
+|-- player_profile
+|   |-- indian_players_profile.txt
+|   `-- nz_players_profile.txt
+|-- var_pair.py
+|-- var_pair.py~
+`-- var_pair.pyc
+
+
