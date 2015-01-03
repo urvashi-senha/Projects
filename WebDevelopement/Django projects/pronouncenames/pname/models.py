@@ -1,0 +1,43 @@
+from django.db import models
+import datetime
+# Create your models here.
+
+class Word(models.Model):
+    name = models.CharField(max_length = 200)
+    phomene = models.CharField(max_length = 200)
+    t = datetime.datetime.now()
+    a = str(t).split()
+    b = a[1].split('.')
+    c = b[0].replace(':','-')
+    f = a[0] + '-' + c
+    audiofile = models.FileField(upload_to = f, blank = True,null=True)
+    recordfile  = models.CharField(max_length = 200, blank = True, null = True)
+    votes = models.IntegerField(default=0)
+    pos = models.CharField(max_length = 200, blank = True, null = True)
+    origin = models.CharField(max_length = 200, blank = True, null = True)
+    f_l_name = models.CharField(max_length = 200, blank = True, null = True)
+    gender = models.CharField(max_length = 200, blank = True, null = True)
+    meaning = models.CharField(max_length = 500, blank = True, null = True)
+    key = models.CharField(max_length = 500, blank = True, null = True)
+    
+    def __unicode__(self):
+	return self.name
+
+class Phoneme(models.Model):
+    phoneme = models.CharField(max_length = 5)
+    audiofile = models.FileField(upload_to = 'phonemes')
+    def __unicode__(self):
+	return self.phoneme
+
+
+class RequestWord(models.Model):
+    word = models.CharField(max_length=200)
+    def __unicode__(self):
+	return self.word
+
+class WordKey(models.Model):
+    key = models.CharField(max_length = 500)
+    paid = models.BooleanField(default = False)
+    def __unicode__(self):
+	return self.key
+

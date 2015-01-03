@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+{{=lists}}
+<form action="edit_post_2.html" method=POST>
+    LINK : <input type="text" name="url" value="{{=lists[0]['links.url']}}"><br>
+    Heading : <input type="text" name="head" value="{{=lists[0]['links.heading']}}"><br>
+    Category : <select name="cat">
+    {{for i in cate:}}
+    <option value="{{=i}}">{{=i}}</option>
+    {{pass}}
+    </select> <br />
+    <input type="hidden" name="link" value="{{=lists[0]['links.id']}}"> 
+    <input type="submit" value="Submit">
+</form>

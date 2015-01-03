@@ -1,0 +1,5 @@
+{{extend 'layout.html'}}
+Product Id : {{=record[0]['Product_ID']}}
+<br>Name :  {{=record[0]['Name']}}
+<br>Price :  {{=record[0]['Price']}}
+<br>Availablity :  {{=record[0]['Availablity']}}

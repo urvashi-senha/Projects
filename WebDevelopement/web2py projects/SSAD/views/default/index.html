@@ -1,0 +1,26 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+{{if 'message' in globals():}}
+<h3>{{=message}}</h3>
+
+<a href="http://127.0.0.1:8000/SSAD/default/post_link"><button input="button" name="postlink">Post A Link </button></a>
+<a href="http://127.0.0.1:8000/SSAD/default/view_posts"><button input="button" name="view_post">View My Posts</button></a>
+<br>
+<br>
+<br>
+Categories of posts:<br>
+<form action="display.html" method="POST">
+{{ for i in range(len(cat)):}}
+    <input type="submit" name="cate" value="{{=cat[i]['categories.name']}}">
+{{pass}} 
+</form>   
+{{elif 'content' in globals():}}
+{{=content}}
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}
+
+{{block right_sidebar}}
+
+{{end}}

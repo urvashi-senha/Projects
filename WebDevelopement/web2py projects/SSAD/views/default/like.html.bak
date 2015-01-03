@@ -1,0 +1,8 @@
+{{extend 'layout.html'}}
+{{=message}}
+{{=cat}}
+
+<form action="display.html" method="POST">
+    <input type="hidden" name="cate" value="{{=cat}}">
+	<input type="submit" value="Back">
+</form>

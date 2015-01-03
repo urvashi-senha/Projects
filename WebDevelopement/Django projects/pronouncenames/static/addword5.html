@@ -1,0 +1,145 @@
+<html>
+<head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+ 
+</head>
+
+<body>
+<!-- ************************************************* -->
+	<div id="header">
+	
+		<p class="head"> SAY IT</p>
+		<p class="subhead">Help Us Pronounce</p>
+
+		<div class="nav">
+
+
+			<ul>
+				<li><a href="home.html">Home</a></li>
+				<li class="selected"><a href="">Search</a></li>
+		<!--		<li><a href="addword.html">Add Word</a></li>
+		    <li><a href="addreq.html">Post a request</a></li>
+				<li><a href="displayallwords.html">Display all</a></li>
+				<li class="festival"><a href="fest.html">Festival</a></li> -->
+			</ul>
+		</div>
+	</div>
+<!-- ************************************************* -->
+
+
+	<div id="body">
+
+			<div class="search">
+			
+				<div class="heading">SEARCH</div>
+					
+				<div class="about">
+				    	<form action = "search.html/" method = 'POST'>
+					    {% csrf_token %}
+						<input type="text" placeholder="Search here..." name="s" id="s"/>
+						<button type="submit">Search</button>
+					</form>
+			        </div>   
+				
+		
+				<img src="{{STATIC_URL}}images/search.jpg " alt ="" > 
+
+			    </div>
+			    
+
+				    {% if w %}
+			    <div class="message">	    
+			    {{message}}
+				</div>
+
+				    <div class="results2">
+		    <table>
+			<tr>
+			    <td>
+		    		Word:
+			    </td>
+			    <td>
+				{{w}}
+			    </td>
+			</tr>
+			
+		    <form action="addword4.html/" method = "POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<tr>
+			    <td>
+				Phonemic Breakup :
+			    </td>
+			    <td style="vertical-align: middle"><input type="text" value="{{m}}" name="m2"><a href="http://festvox.org/bsv/c4584.html" target="_blank"><img src="{{STATIC_URL}}images/help.jpeg " alt ="" width="35px" height="30px"></a></td>
+		       </tr>
+		   </tr>
+		       <tr>
+			   <td>Word Type</td>
+			   <td>
+			       <select name="pos">
+				   <option value="Proper Noun">Proper Noun</option>
+				   <option value="First Name">First Name</option>
+				   <option value="Last Name">Last Name</option>
+				   <option value="Noun">Noun</option>
+				   <option value="Verb">Verb</option>
+				   <option value="Adjective">Adjective</option>
+				   <option value="Adverb">Adverb</option>
+				</select>
+			   </td>
+		       </tr>
+		       <tr>
+			   <td>Origin</td>
+			   <td>
+			  <!--     <select name="lang">
+				   <option value="">English</option>
+				   <option value="hindi">Hindi</option>
+				   <option value="marathi">Marathi</option>
+				   <option value="telugu">Telugu</option>
+			       </select>-->
+			       <input type= "text" value = "" name="lang" id="lang"> 
+			   </td>
+		       </tr>
+		       <tr><td></td><td>For eg: Indian, American , Chinese etc </td></tr>
+		       <tr><td>Meaning</td><td><textarea rows="3" cols="35" name="meaning"></textarea></td></tr>
+
+		       <!--<tr><td>Record:</td> <td> <a href="http://webaudiodemos.appspot.com/AudioRecorder/index.html" target="_blank">CLICK TO RECORD</a></td></tr>-->
+		       <tr><td>Upload:</td><td><input type="text" name="audiofile" value="{{recfile}}" ></td></tr>
+	    <tr>
+		<td>
+		</td>
+		<td>
+		    <input type="hidden" name="w" value="{{w}}">
+		    <input type="hidden" name="m" value="{{m}}">
+		    <input type="submit" value="Upload"/>
+		    </td>
+		</tr>
+	    </form>
+	</table>
+			{% endif %}
+				    </div>
+		
+
+		
+	</div>
+<!-- ************************************************* -->
+	
+	<div id="footer">
+
+		<div class="footer">
+			<table>
+				<tr>
+				    <td class = "links"><a href="">Contact us</a></td>
+				    <td class="links"><a href="">Admin Site</a></td>
+				    <td class="links"><a href= "">Feedback</a></td>
+				</tr>
+			</table>
+				
+		</div>
+		
+	
+	</div>
+
+<!-- ************************************************* -->
+
+</body>

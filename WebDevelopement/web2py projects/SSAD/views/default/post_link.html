@@ -1,0 +1,16 @@
+{{extend 'layout.html'}}
+<h1>POST A LINK !! </h1>
+<form action="post_link_2.html" method=POST>
+    LINK : <input type="text" name="url" value=""><br>
+    Video Link : <input type="text" name="video" value=""><br/>
+    Heading : <input type="text" name="head" value=""><br>
+    Category : <select name="cat">
+    {{for i in cate:}}
+    <option value="{{=i}}">{{=i}}</option>
+    {{pass}}
+    </select> <br />
+    <input type="hidden" name="fname" value="{{=fname}}">
+    <input type="hidden" name="lname" value="{{=lname}}">
+    <input type="hidden" name="i" value="{{=d}}">
+    <input type="submit" value="Submit">
+</form>

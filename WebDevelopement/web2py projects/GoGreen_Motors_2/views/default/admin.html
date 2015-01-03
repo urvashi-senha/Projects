@@ -1,0 +1,31 @@
+{{extend 'layout.html'}}
+
+<h1>Admin Functions</h1>
+Manager :<ul><li>Name : {{=man[0]['Name']}}</li>
+<li>Designation: {{=man[0]['Designation']}}</li>
+<li> Email : {{=man[0]['Email_id']}}</li>
+</ul>
+Team Leader :<ul>
+    <li>Name : {{=team[0]['Name']}}</li>
+<li>Designation: {{=team[0]['Designation']}}</li>
+<li> Email : {{=team[0]['Email_id']}}</li>
+</ul>
+Executives :
+<ul>
+    {{if len(exe) >0 :}}
+        <li>Name : {{=exe[0]['Name']}}</li>
+<li>Designation: {{=exe[0]['Designation']}}</li>
+<li> Email : {{=exe[0]['Email_id']}}</li>
+
+    {{pass}}
+</ul>
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/add_employee"><button input="button" name="add_empl">Add Employee</button></a>&nbsp;&nbsp;&nbsp;
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/delete_employee"><button input="button" name="del_empl">Delete Employee</button></a>&nbsp;&nbsp;&nbsp;
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/edit_emp"><button input="button" name="edit_empl">Edit Employee</button></a>&nbsp;&nbsp;&nbsp;
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/add_model"><button input="button" name="add_model">Add Model</button></a>&nbsp;&nbsp;&nbsp;
+<br><br>
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/edit_model"><button input="button" name="edit_model">Edit Model</button></a>&nbsp;&nbsp;&nbsp;
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/del_model"><button input="button" name="del_model">Delete Model</button></a>&nbsp;&nbsp;&nbsp;
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/add_other_product"><button input="button" name="add_prd">Add Product</button></a>&nbsp;&nbsp;&nbsp;
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/del_other_product"><button input="button" name="del_prd">Delete Product</button></a>&nbsp;&nbsp;&nbsp;
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/search"><button input="button" name="search">Search</button></a>&nbsp;&nbsp;&nbsp;

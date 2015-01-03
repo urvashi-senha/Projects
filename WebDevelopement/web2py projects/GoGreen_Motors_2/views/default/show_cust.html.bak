@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+
+Customer Id : {{=record[0]['Customer_ID']}}
+<br> Name :  {{=record[0]['Name']}}
+<br> Address :  {{=record[0]['Address']}}
+<br> Phone number :  {{=record[0]['Ph_no']}}
+<br> Date of Birth :  {{=record[0]['Date_of_birth']}}

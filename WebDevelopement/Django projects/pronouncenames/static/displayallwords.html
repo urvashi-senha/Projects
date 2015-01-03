@@ -1,0 +1,103 @@
+<html>
+
+<head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+ 
+</head>
+
+<body>
+<!-- ************************************************* -->
+	<div id="header">
+	
+		<p class="head"> SAY IT</p>
+		<p class="subhead">Help Us Pronounce</p>
+
+		<div class="nav">
+
+			<ul>
+				<li><a href="home.html">Home</a></li>
+				<li><a href="search.html">Search</a></li>
+				<li><a href="addword.html">Add Word</a></li>
+		    <!--<li><a href="addreq.html">Post a request</a></li>-->
+				<li class="selected"><a href="">Display all</a></li>
+				<li class="festival"><a href="fest.html">Festival</a></li>
+			</ul>
+		</div>
+	</div>
+
+<!-- ************************************************* -->
+
+
+	<div id="body">
+
+			<div class="displayallwords">
+			
+				<div class="heading"></div>
+
+			</div>	
+			{% if words %}	
+			<div class="displayall_list">
+			    <table>
+				
+				<th style="width:250px;text-align:center"> WORD </th>
+				<th style="width:250px;text-align:center"> PHONEMIC BREAKUP </th>
+				<th style="width:150px;text-align:center"> AUDIO </th>
+				<th style="width:250px;text-align:center"> CATEGORY </th>
+				<th style="width:250px;text-align:center"> LANGUAGE </th>
+				<th> MEANING </th>
+				<!--<th> VOTE UP </th>
+				<th> VOTE DOWN </th>-->
+			     {% for r in words %}
+			    <tr>	
+				<td style="width:250px;text-align:center">{{r.name}}</td>
+				<td style="width:250px;text-align:center">{{r.phomene}}</td>
+				<td style="width:150px;text-align:center">{% load audiofiles %}{% audiofiles r.audiofile.url %}</td>
+				<td style="width:250px;text-align:center">{% load info %}{% info r.pos %}</td>
+				<td style="width:250px;text-align:center">{% load info %}{% info r.origin %}</td>
+				<td>{% load info %}{% info r.meaning %}</td>
+			   <!-- <td>	<form action="" method = "POST">
+				    	    {% csrf_token %}
+					    	    <input type="hidden" id = "word1" name= "word1" value="{{r.id}}"/>
+						    <INPUT TYPE="image" SRC="{{STATIC_URL }}images/up.png" WIDTH="50"  HEIGHT="50" BORDER="0" name ="up" id="up" ALT="SUBMIT!" value="up"> 	    
+
+					    </form></td>
+					    <td><form action="" method = "POST">
+						    	{% csrf_token %}
+							<input type="hidden" id = "word2" name= "word2" value="{{r.id}}"/>
+							<INPUT TYPE="image" SRC="{{STATIC_URL }}images/down.png" WIDTH="50"  HEIGHT="50" BORDER="0" name ="down" id="down" ALT="SUBMIT!" value="down">
+						</form></td> -->
+					    
+				</tr>
+					    {% endfor %}
+					</table>
+				
+		
+		    </div>
+			{% endif %}
+		
+
+		
+	</div>
+<!-- ************************************************* -->
+	
+	<div id="footer">
+
+		<div class="footer">
+			<table>
+				<tr>
+				    <td class = "links"><a href="">Contact us</a></td>
+				    <td class="links"><a href="admin2.html">Admin Site</a></td>
+				    <td class="links"><a href= "">Feedback</a></td>
+				</tr>
+			</table>
+				
+		</div>
+		
+	
+	</div>
+
+<!-- ************************************************* -->
+
+</body>

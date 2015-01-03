@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<h1>Details of purchases made:</h1>
+{{for i in range(len(l)):}}
+Customer : {{ for j in range(len(c)):}}
+                {{ if c[j]['Customer_ID']==l[i]['Customer_ID'] :}}
+                        {{=c[j]['Name']}}
+				{{pass}}
+           {{pass}}
+Model : {{=l[i]['Model_no']}}<br>
+{{pass}}

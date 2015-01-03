@@ -1,0 +1,88 @@
+{{extend 'layout.html'}}
+<script>
+function yplayer(sr)
+    {
+        alert("sr");
+        document.getElementById("vid").innerHTML = '<iframe width="560" height="315" src=sr frameborder="0" allowfullscreen></iframe><br />';
+    }
+</script>
+
+<h3>{{=cat}}</h3>
+<br/>
+<br/>
+<a href="http://127.0.0.1:8000/SSAD/default/post_link"><button input="button" name="postlink">Post A Link </button></a><br/>
+{{for i in range(len(lists)):}}
+
+Heading : <a href="{{=lists[i]['links.url']}}" target="_blank">{{=lists[i]['links.heading']}}</a><br>
+
+{{vi=str(lists[i]['links.video_link'])}}
+{{ if vi!='None':}}
+{{v=vi.split('=')}}
+
+Video Link : 
+<iframe width="560" height="315" src="//www.youtube.com/embed/{{=v[1]}}" frameborder="0" allowfullscreen></iframe><br> 
+{{pass}}
+Category : {{=lists[i]['links.category']}}<br>
+Likes : {{=lists[i]['links.likes']}}<br>
+Dislikes : {{=lists[i]['links.dislikes']}}<br>
+
+
+{{j=lists[i]['links.username']}}
+{{for k in range(len(ids)):}}
+{{if j==ids[k]['auth_user.id']:}}
+	{{f=ids[k]['auth_user.first_name']}}
+	{{l=ids[k]['auth_user.last_name']}}
+    {{n=f + ' ' + l}}
+    {{pass}}
+{{pass}}
+
+Posted by : {{=n}}<br>
+{{da=str(lists[i]['links.date_posted'])}}
+{{dat=da.split()}}
+{{ti=str(lists[i]['links.time_posted'])}}
+{{tim=ti.split()}}
+
+On : {{=dat[0]}}<br>
+At : {{=tim[1]}}<br>
+ 
+{{for k in range(len(com)):}}
+{{if lists[i]['links.id']==com[k]['comments.link']:}}
+Comment : {{=com[k]['comments.commented']}}	
+<br>
+{{da=str(com[k]['comments.date_com'])}}
+{{dat=da.split()}}
+{{ti=str(com[k]['comments.time_com'])}}
+{{tim=ti.split()}}
+On : {{=dat[0]}}<br>
+At : {{=tim[1]}}<br>
+
+
+
+{{for m in range(len(ids)):}}
+{{if com[k]['comments.usr']==ids[m]['auth_user.id']:}}
+{{f=ids[m]['auth_user.first_name']}}
+    {{l=ids[m]['auth_user.last_name']}}
+    {{n=f + ' ' + l}}
+    {{pass}}
+{{pass}}
+by: {{=n}}<br><br>
+{{pass}}
+{{pass}}
+<br>
+<form action="like.html" method="POST">
+    <input type="hidden" name="link" value="{{=lists[i]['links.id']}}">
+    <input type="hidden" name="cat" value="{{=lists[i]['links.category']}}">
+    <input type="submit" name="likebutton" value="Like">
+</form>
+<form action="dislike.html" method="POST">
+	<input type="hidden" name="link" value="{{=lists[i]['links.id']}}">
+	<input type="hidden" name="cat" value="{{=lists[i]['links.category']}}">
+	<input type="submit" name="dislikebutton" value="Dislike">
+</form>
+<form action="comment.html" method="POST">
+	<input type="hidden" name="link" value= "{{=lists[i]['links.id']}}">
+	<input type="hidden" name="cat" value="{{=lists[i]['links.category']}}">
+	<input type="submit" name="commentbutton" value="Comment">
+</form>
+
+{{pass}}

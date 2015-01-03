@@ -1,0 +1,3 @@
+{{extend 'layout.html'}}
+<h1>Enter details of bike sold:</h1>
+{=form}}

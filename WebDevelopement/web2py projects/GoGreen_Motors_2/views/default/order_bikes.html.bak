@@ -1,0 +1,11 @@
+{{extend 'layout.html'}}
+{{for i in range(len(m)):}}
+{{count=0}}
+{{for j in range(len(l)):}}
+{{if l[j]['Model_no'] == m[i]['Model_no']:}}
+{{count=count+1}}
+{{pass}}
+{{pass}}
+Model No : {{=m[i]['Model_no']}}
+Order = {{=count}}<br>
+{{pass}}

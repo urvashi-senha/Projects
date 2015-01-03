@@ -1,0 +1,143 @@
+<html>
+
+    <head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+
+    </head>
+
+    <body>
+	<!-- ************************************************* -->
+	<div id="header">
+
+	    <p class="head"> Say-It </p>
+	    <p class="subhead">Help Us Pronounce</p>
+
+	    <div class="navigation">
+
+			<ul>
+				<li><a href="admin2.html">Home</a></li>
+				
+				<li >
+					<a>Search</a>
+					<ul>
+					    <li><a href="admin_search.html">Words</a></li>
+					    <li><a href="">Keys</a></li>
+					</ul>
+				</li>
+				
+				<li class="selected"><a href="">Add Word</a></li>
+				
+				<li>
+				<a>Display all</a>
+					<ul>
+					    <li><a href="admin_displayallwords.html">Words</a></li>
+					    <li><a href="">Keys</a></li>
+					</ul>
+				</li>
+				
+				<li class="festival"><a href="admin_fest.html">Festival</a></li>
+				
+				<li class="selected"><a href="adminlogout.html">LOGOUT</a></li>
+			</ul>
+
+	    </div>
+	</div>
+	<!-- ************************************************* -->
+
+
+	<div id="body">
+
+	    <div class="addword">
+
+		<div class="heading">ADD WORD</div>
+
+		<div class="about">
+		    {{message}}
+		    <form action="addword4.html/" method = "POST" enctype="multipart/form-data">
+			{% csrf_token %}
+		    <table>
+			<tr>
+			    <td>
+		    		Word:
+			    </td>
+			    <td>
+				{{w}}
+			    </td>
+			</tr>
+			
+			<tr>
+			    <td>
+				Phonemic Breakup :
+			    </td>
+			    <td><input type="text" value="{{m}}" name="m2">
+	
+				
+			    </td>
+		       </tr>
+		       <tr>
+			   <td>Word Type</td>
+			   <td>
+			       <select name="pos">
+				   <option value="proper noun">Proper Noun</option>
+				   <option value="noun">Noun</option>
+				   <option value="verb">Verb</option>
+				   <option value="adjective">Adjective</option>
+				</select>
+			   </td>
+		       </tr>
+		       <tr>
+			   <td>Language</td>
+			   <td>
+			       <select name="lang">
+				   <option value="english">English</option>
+				   <option value="hindi">Hindi</option>
+				   <option value="marathi">Marathi</option>
+				   <option value="telugu">Telugu</option>
+			       </select>
+			   </td>
+		       </tr>
+		       <tr><td>Meaning</td><td><textarea rows="3" cols="35"></textarea></td></tr>
+
+
+	    <tr><td>{{form.audiofile.label_tag}}</td><td>{{form.audiofile}}</td></tr>
+	    <tr><td>record:</td> <td> <a href="recindex.html">CLICK TO RECORD</a></td></tr>
+	    <tr><td></td><td><input type="hidden" name="w" value="{{w}}"><input type="hidden" name="m" value="{{m}}"><input type="submit" value="Upload"/></td></tr>
+	</table>
+    </form> 
+
+	</div>   
+	
+	<div class="pic">
+	   	    <img src="{{STATIC_URL}}images/addword.jpeg" alt=""> 
+	</div>
+
+
+    </div>	
+
+
+
+
+</div>
+<!-- ************************************************* -->
+
+<div id="footer">
+
+    <div class="footer">
+	<table>
+	    <tr>
+				    <td class = "links"><a href="">Contact us</a></td>
+				    <td class="links"><a href="admin2.html">Admin Site</a></td>
+				    <td class="links"><a href= "">Feedback</a></td>
+				</tr>
+			</table>
+				
+		</div>
+		
+	
+	</div>
+
+<!-- ************************************************* -->
+
+</body>

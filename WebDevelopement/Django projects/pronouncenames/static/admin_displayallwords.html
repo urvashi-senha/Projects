@@ -1,0 +1,113 @@
+<html>
+
+<head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+ 
+</head>
+
+<body>
+<!-- ************************************************* -->
+	<div id="header">
+	
+		<p class="head"> PRONOUNCE NAMES</p>
+		<p class="subhead">Help Us Pronounce</p>
+
+		<div class="navigation">
+
+			<ul>
+				<li><a href="admin2.html">Home</a></li>
+				
+				<li >
+					<a>Search</a>
+					<ul>
+					    <li><a href="admin_search.html">Words</a></li>
+					    <li><a href="">Keys</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="admin_addword.html">Add Word</a></li>
+				
+				<li class="selected">
+				<a>Display all</a>
+					<ul>
+					    <li><a href="admin_displayallwords.html">Words</a></li>
+					    <li><a href="">Keys</a></li>
+					</ul>
+				</li>
+				
+				<li class="festival"><a href="admin_fest.html">Festival</a></li>
+				
+				<li class="selected"><a href="adminlogout.html">LOGOUT</a></li>
+			</ul>
+		</div>
+	</div>
+
+<!-- ************************************************* -->
+
+
+	<div id="body">
+
+			<div class="displayallwords">
+			
+				<div class="heading"></div>
+
+			</div>	
+			{% if words %}	
+			<div class="displayall_list">
+			    <table>
+				
+				<th> WORD </th>
+				<th> PHONEMIC BREAKUP </th>
+				<th> AUDIO </th>
+				<!--<th> VOTE UP </th>
+				<th> VOTE DOWN </th>-->
+			     {% for r in words %}
+			    <tr>	
+				<td>{{r.name}}</td>
+			    <td>{{r.phomene}}</td>
+			   <td><audio controls="controls" controls="download"> <source src="{{ r.audiofile.url }}" type="audio/mp3"></audio></td>
+			   <!-- <td>	<form action="" method = "POST">
+				    	    {% csrf_token %}
+					    	    <input type="hidden" id = "word1" name= "word1" value="{{r.id}}"/>
+						    <INPUT TYPE="image" SRC="{{STATIC_URL }}images/up.png" WIDTH="50"  HEIGHT="50" BORDER="0" name ="up" id="up" ALT="SUBMIT!" value="up"> 	    
+
+					    </form></td>
+					    <td><form action="" method = "POST">
+						    	{% csrf_token %}
+							<input type="hidden" id = "word2" name= "word2" value="{{r.id}}"/>
+							<INPUT TYPE="image" SRC="{{STATIC_URL }}images/down.png" WIDTH="50"  HEIGHT="50" BORDER="0" name ="down" id="down" ALT="SUBMIT!" value="down">
+						</form></td> -->
+					    </tr>
+					    {% endfor %}
+					</table>
+				
+		
+		    </div>
+			{% endif %}
+		
+
+		
+	</div>
+<!-- ************************************************* -->
+	
+	<div id="footer">
+
+		<div class="footer">
+			<table>
+				<tr>
+				    <td class = "links"><a href="">Contact us</a></td>
+				    <td class="links"><a href="admin2.html">Admin Site</a></td>
+				    <td class="links"><a href= "">Feedback</a></td>
+				</tr>
+			</table>
+				
+		</div>
+		
+	
+	</div>
+
+<!-- ************************************************* -->
+
+</body>

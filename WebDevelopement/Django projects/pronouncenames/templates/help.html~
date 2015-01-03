@@ -1,0 +1,59 @@
+<html>
+    <head>
+    
+    </head>
+    
+    <body>
+	
+	<h2>Phoneme List</h2>
+
+	<table>
+	    <tr><td style="width:130px">aa</td><td>f-<b>A</b>-ther, w-<b>A</b>-shington</td></tr>
+	    <tr><td>ae</td><td>f-<b>A</b>-t, b-<b>A</b>-d </td></tr>
+	    <tr><td>ah</td><td>b-<b>U</b>-t, h-<b>U</b>-sh </td></tr>
+	    <tr><td>ao</td><td>l-<b>AW</b>-n, d-<b>OO</b>-r, m-<b>A</b>-ll </td></tr>
+	    <tr><td>aw</td><td>h-<b>OW</b>, s-<b>OU</b>-th, br-<b>OW</b>-ser </td></tr>
+	    <tr><td>ax</td><td><b>A</b>-bout, c-<b>A</b>-noe </td></tr>
+	    <tr><td>ay</td><td>h-<b>I</b>-de, b-<b>I</b>-ble</td></tr>
+	    <tr><td>eh</td><td>g-<b>E</b>-t, f-<b>EA</b>-ther </td></tr>
+	    <tr><td>el</td><td>tab-<b>LE</b>-, usab-<b>LE</b> </td></tr>
+	    <tr><td>em</td><td>syst-<b>EM</b>, communis-<b>M</b> </td></tr>
+	    <tr><td>en</td><td>beat-<b>EN</b> </td></tr>
+	    <tr><td>er</td><td>f-<b>ER</b>-tile, s-<b>EAR</b>-ch, mak-<b>ER</b></td></tr>
+	    <tr><td>ey</td><td>g-<b>A</b>-te, -<b>A</b>-te </td></tr>
+	    <tr><td>ih</td><td>b-<b>I</b>-t, sh-<b>I</b>-p </td></tr>
+	    <tr><td>iy</td><td>b-<b>EA</b>-t, sh-<b>EE</b>-p </td></tr>
+	    <tr><td>ow</td><td>l-<b>O</b>-ne, n-<b>O</b>-se </td></tr>
+	    <tr><td>oy</td><td>t-<b>O</b>-Y, <b>OY</b>-ster </td></tr>
+	    <tr><td>uh</td><td>f-<b>U</b>-ll, w-<b>OO</b>-d </td></tr>
+	    <tr><td>uw</td><td>f-<b>OO</b>-l, f-<b>OO</b>-d </td></tr>
+	    <tr><td>b</td><td><b>B</b>-ook, a-<b>B</b>-rupt </td></tr>
+	    <tr><td>ch</td><td><b>CH</b>-art, lar-<b>CH</b> </td></tr>
+	    <tr><td>d</td><td><b>D</b>-one, ba-<b>D</b> </td></tr>
+	    <tr><td>dh</td><td><b>TH</b>-at, fa-<b>TH</b>-er </td></tr>
+	    <tr><td>f</td><td><b>F</b>-at, lau-<b>GH</b> </td></tr>
+	    <tr><td>g</td><td><b>G</b>-ood, bi-<b>GG</b>-er </td></tr>
+	    <tr><td>hh</td><td><b>H</b>-ello, loop-<b>H</b>-ole </td></tr>
+	    <tr><td>jh</td><td>di-<b>G</b>-it, <b>J</b>-ack </td></tr>
+	    <tr><td>k</td><td><b>C</b>-amera, ja-<b>CK</b>, <b>K</b>-ill  </td></tr>
+	    <tr><td>l</td><td><b>L</b>-ate, fu-<b>LL</b> </td></tr>
+	    <tr><td>m</td><td><b>Man, ga-<b>M</b>-e </td></tr>
+	    <tr><td>n</td><td>ma-<b>N, <b>N</b>-ew </td></tr>
+	    <tr><td>ng</td><td>ba-<b>NG</b>, sitti-<b>NG</b> </td></tr>
+	    <tr><td>p</td><td><b>P</b>-at, cam-<b>P</b>-er</td></tr>
+	    <tr><td>r</td><td><b>R</b>-eason, ca-<b>R</b>, </td></tr>
+	    <tr><td>s</td><td><b>S</b>-it, ma-<b>SS</b> </td></tr>
+	    <tr><td>sh</td><td><b>SH</b>-ip, cla-<b>SH</b> </td></tr>
+	    <tr><td>t</td><td><b>T</b>-ap, ba-<b>T</b> </td></tr>
+	    <tr><td>th</td><td><b>TH</b>-eatre, ba-<b>TH</b> </td></tr>
+	    <tr><td>v</td><td><b>V</b>-arious, ha-<b>V</b>-e </td></tr>
+	    <tr><td>w</td><td><b>W</b>-ater, cob-<b>W</b>-eb </td></tr>
+	    <tr><td>y</td><td><b>Y</b>-ellow, <b>Y</b>-acht </td></tr>
+	    <tr><td>z</td><td><b>Z</b>-ero, qui-<b>Z</b>, boy-<b>S</b> </td></tr>
+	    <tr><td>zh</td><td>vi-<b>S</b>-ion, ca-<b>S</b>-ual </td></tr>
+	   
+
+	</table>
+    </body>
+</html>
+

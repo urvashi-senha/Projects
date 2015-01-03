@@ -1,0 +1,89 @@
+<html>
+
+<head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+ 
+</head>
+
+<body>
+<!-- ************************************************* -->
+	<div id="header">
+	
+		<p class="head"> SAY IT</p>
+		<p class="subhead">Help Us Pronounce</p>
+
+		<div class="navigation">
+
+			<ul>
+				<li><a href="home.html">Home</a></li>
+				<li ><a href="search.html">Search</a></li>
+				<li><a href="addword.html">Add Word</a></li>
+				<li><a href="displayallwords.html">Display all</a></li>
+				<li class="festival"><a href="fest.html">Festival</a></li>
+			    </ul>
+		</div>
+	</div>
+<!-- ************************************************* -->
+
+
+	<div id="body">
+
+			<div class="login">
+			
+				<div class="heading">LOGIN</div>
+				
+				<div class="about">
+				     <form action="admin2.html/" method="POST">
+					 {% csrf_token %}
+					 <table>
+					     <tr>
+					     <td> User:</td>
+						<td><input type="text" name="username" id="username"> </td>
+					    </tr>
+					    <tr>	    
+						<td>Password:</td>
+						<td><input type="password" name="password" id="password"></td>
+					    </tr>
+					    <tr>
+						<td></td>
+						 <td>   <input type="submit" value="Login"> </td>
+					     </tr>
+					 </table>
+
+					</form>
+			        </div>   
+				
+		
+				<!--				<img src="{{STATIC_URL}}images/search.jpg " alt ="" > -->
+
+			</div>	
+				
+		
+		    </div>
+		
+
+		
+	</div>
+<!-- ************************************************* -->
+	
+	<div id="footer">
+
+		<div class="footer">
+			<table>
+				<tr>
+				    <td class = "links"><a href="">Contact us</a></td>
+				    <td class="links"><a href="admin2.html">Admin Site</a></td>
+				    <td class="links"><a href= "">Feedback</a></td>
+				</tr>
+			</table>
+				
+		</div>
+		
+	
+	</div>
+
+<!-- ************************************************* -->
+
+</body>
