@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.health_connect"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.health_connect.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.health_connect.Welcome"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.health_connect.Second" />
+        <activity android:name="com.example.health_connect.Third" />
+        <activity
+            android:name="com.example.health_connect.FilePickerActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.health_connect.Fourth"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.health_connect.Home"
+            android:label="@string/app_name" >
+        </activity>
+        <activity android:name="com.example.health_connect.Fifth_new" />
+        <activity
+            android:name="com.example.health_connect.MyPageAdapter"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.example.health_connect.MySampleFragment"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.example.health_connect.MyTabFactory"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.example.health_connect.SwipeHome"
+            android:label="@string/app_name" />
+        <activity android:name="com.example.health_connect.Sixth" />
+        <activity android:name="com.example.health_connect.MemoryCache" />
+        <activity android:name="com.example.health_connect.FileCache" />
+        <activity android:name="com.example.health_connect.ListViewAdapter" />
+        <activity android:name="com.example.health_connect.SingleItemView" />
+        <activity android:name="com.example.health_connect.ImageLoader" />
+        <activity android:name="com.example.health_connect.Utils" />
+        <activity android:name="com.example.health_connect.Report" />
+        <activity
+            android:name="com.example.health_connect.Search_doc"
+            android:label="@string/title_activity_search_doc" >
+        </activity>
+    </application>
+
+</manifest>
