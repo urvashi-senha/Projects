@@ -1,0 +1,3 @@
+Red_JJ figures_NN on_IN the_DET screen_NN indicated_VB falling_JJ stocks_NN
+The_DET man_NN saw_VB the_DET girl_NN at_IN the_DET party_NN
+The_DET man_NN at_IN the_DET party_NN saw_VB the_DET girl_NN

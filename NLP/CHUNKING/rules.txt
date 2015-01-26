@@ -1,0 +1,6 @@
+NP -> JJ NN
+NP -> DET NN
+PP -> IN NP
+VP -> VB NP
+NP -> NP PP
+VP -> VP PP
