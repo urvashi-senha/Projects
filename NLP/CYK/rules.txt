@@ -1,8 +1,0 @@
-ROOT -> S . = 1.0
-S -> NP VP = 1.0
-VP -> VB NP = 1.0
-NP -> DET NN = 0.6
-S -> VB NP = 0.3
-VP -> VB PP = 0.4
-PP -> IN NP = 0.8
-NP -> NN NN = 0.2

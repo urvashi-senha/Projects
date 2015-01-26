@@ -1,0 +1,22 @@
+Module Name: POS Tagging using HMM and Viterbi Algorithm
+
+1- Requirements:
+----------------
+ Operating System               :       LINUX (tested on <= Ubuntu 12.04)
+
+ Compiler/Interpreter/Librarie(s):     Python
+
+
+
+2- How to run
+---------------
+python viterbi.py <testfile> <trainfile>
+
+
+viterbi.py - input is the test sentences and output is the tagged sentences.
+
+emmission.py - calculates the probabilities of an word 'W' being tagged 'T' 
+
+transition.py - calucates the prabability of tag 'T2' following tag 'T1'  
+
+

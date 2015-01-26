@@ -1,0 +1,15 @@
+Module Name: POS Tagging using HMM and Viterbi Algorithm
+
+1- Requirements:
+----------------
+ Operating System               :       LINUX (tested on <= Ubuntu 12.04)
+
+ Compiler/Interpreter/Librarie(s):      g++ / Perl  / Python
+
+
+
+2- How to run
+---------------
+python viterbi.py <testfile> <trainfile>  
+
+

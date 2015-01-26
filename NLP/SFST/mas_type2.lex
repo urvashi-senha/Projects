@@ -1,4 +1,0 @@
-sAzcA
-vakIla
-parvawa
-sAhiwyakAra

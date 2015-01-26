@@ -1,0 +1,19 @@
+Module Name: Chunking
+
+Assumptions:The following POS tags were not right and so we have changed them as given below:
+बेचारी_JJ ठगी_VM औरत_NN जाये_VM तो_RP जाये_VM कहां_WQ ?_SYM
+ठगी_VM -> ठगी_JJ
+
+
+1- Requirements:
+----------------
+ Operating System               :       LINUX (tested on <= Ubuntu 12.04)
+
+ Compiler/Interpreter/Librarie(s):    Python
+
+
+
+2- How to run
+---------------
+python chunking.py text.txt rules.txt
+
