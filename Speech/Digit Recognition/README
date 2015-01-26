@@ -1,0 +1,17 @@
+Digit Recognition 
+
+Implemented using DTW approach in MATLAB.
+
+The Test folder contains 18 audio files.(<digit>1.wav/<digit>2.wav)
+The Train folder contains 18 audio files.(<digit>1.wav/<digit>2.wav)
+ 
+main_code.m - input is the name of a audio file(<digit>) and output is the best and second-best recognised digits.
+
+cepst.m - returns the cepstrum co-efficients  of an audio file.
+
+dtw_new.m - returns the minimum distance between the cepstrum co-efficients of the test file and each of the training files
+
+To run : main_code(tdigit)
+where tdigit is the test digit(1-9)
+
+main_code will open and read <tdigit>1.wav, extract cepstrum coefficients, and calculate the best match using dtw.

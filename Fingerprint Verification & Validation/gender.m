@@ -7,7 +7,7 @@ close all;
 % tempf = [];
 % for i = 1:1:tot
 %     if (i~=9 && i~=18 && i~=128) 
-%         path = ['/home/arwa/Desktop/smai/Project/Female/' num2str(i) '.bmp'];
+%         path = ['Female/' num2str(i) '.bmp'];
 %         im =imread(path);
 %         dim = fft2(im);
 %         tempf = [tempf abs(dim(1))];
@@ -38,7 +38,7 @@ close all;
 % %% Classifying
 % 
 % thresh = 42000000;
-% query = '/home/arwa/Desktop/smai/Project/test/f52.bmp';
+% query = 'test/f52.bmp';
 % im =imread(query);
 % dim = fft2(im);
 % 
