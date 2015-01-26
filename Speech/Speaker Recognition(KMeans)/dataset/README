@@ -1,0 +1,16 @@
+Dataset contains "Kaldi" MFCC features extracted for the TIMIT wav files and divided into train and test set.   
+
+The folder structure is as follows
+
+Train dataset : dataset/feats/train
+Inside the train directory there are 630 folders each corresponding to a speaker with 8 files each.  
+
+Test dataset : dataset/feats/test
+Similar to the train directory, the test directory has 630 folders each corresponding to a speaker with 2 files each.
+
+
+What does the MFCC file contain ?
+ANS: In every .mfcc file there are 39 columns (features) and each row corresponds to a frame(examples/samples/datapoints). 
+
+
+ 

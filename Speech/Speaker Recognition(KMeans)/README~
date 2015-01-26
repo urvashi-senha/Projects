@@ -1,0 +1,13 @@
+Speaker Recognition using KMeans
+
+
+dataset - 
+Train - mfcc of 8 utterances of 630 speakers
+Test - mfcc of 2 utterances of 630 speakers
+code.m - input is the test speaker id and output is the matched speaker.
+
+code2.m - reads testing data and outputs the matched speaker.
+
+getAllFiles.m - a function which retuens the subfiles of a folder.
+
+centroid.m - divides the data into 32 clusters and writes the to the file 'centroid_32'
