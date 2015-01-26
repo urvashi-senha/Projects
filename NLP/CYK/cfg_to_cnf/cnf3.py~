@@ -1,0 +1,58 @@
+## converts CFG to CNF
+def func():	
+	
+	f = open('out2','r')
+	text = f.readlines()
+	f.close()
+	f = open('out3','w')
+	count = 0
+	new_rule = []
+	
+	left_head =[]
+	right_head = []
+	
+	
+	for t in text:
+	    t = t[:-1]
+	    rule, prob = t.split('=')
+	    prob=prob.strip()
+	    rule=rule.strip()
+	    l,r = rule.split('->')
+	    right = r.split()
+	    r = right[0].strip()
+	    if len(right)>2 :
+	    	while len(right) > 2:
+			st = 'X' + str(count) + ' -> ' + right[-2] + ' ' + right[-1] + ' = ' + str(prob)
+			u =  right[-2] + ' ' + right[-1]
+			if u not in right_head:
+				s = 'X' + str(count)
+				count += 1
+				new_rule.append(st)
+	
+				left_head.append(s)
+				right_head.append(u)
+	
+				right = right[:-2]
+				right.append(s)
+			else:
+			    ind = right_head.index(u)
+			    right = right[:-2]
+			    right.append(left_head[ind])
+			    
+		st = l.strip() + ' -> ' + right[0] + ' ' + right[1] + ' = ' + str(prob)
+		new_rule.append(st)
+	    
+	    elif len(right)==2:
+		left_head.append(l.strip())
+		u = right[0] + ' ' + right[1]
+		right_head.append(u)
+		new_rule.append(t)
+	    else:
+	       new_rule.append(t)
+	   
+	
+	for i in new_rule:
+		f.write(i)
+		f.write('\n')
+	f.close()
+	
