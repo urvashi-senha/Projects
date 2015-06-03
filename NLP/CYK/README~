@@ -1,0 +1,12 @@
+Parser using CYK
+
+To Run:
+--------
+python code.py rules.txt text.txt
+
+cgf_to_cnf : 
+Given tagged sentences generates cnf rules.
+python cnf.py English_Parsed_Train.txt > rules.txt
+
+
+

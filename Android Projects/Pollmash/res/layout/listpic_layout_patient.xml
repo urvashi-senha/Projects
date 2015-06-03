@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/serach_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/search"
+        android:ems="10" />
+
+ 
+    <ListView
+        android:id="@+id/listView3"
+        android:layout_width="match_parent"
+        android:layout_height="394dp"
+        android:dividerHeight="3dp" >
+
+    </ListView>
+
+ 
+</LinearLayout>

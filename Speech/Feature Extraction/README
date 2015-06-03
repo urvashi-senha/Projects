@@ -1,0 +1,25 @@
+Objective :
+- Read a wavefile using ascii-to-binary conversion
+- Process the speech signal into frames (short-segment) 
+- Use appropriate windowing function on the short-segment
+- Use simple time domain features to detect begin and end of the speech signal
+- Use simple time domain features to denoted voiced and unvoiced region in the speech signal 
+- Extract the spectral features using FFT (standard routines in Matlab)
+- Resynthesize the signal back using IFFT (you would need both magnitude and phase information)
+- Resynthesize the signal using unit mangnitude and original phase
+- Resynthesize the signal using original magnitude and unit phase 
+- Perform linear prediction analysis on voiced and unvoiced segments and report your observation
+- Use appropriate filters to derive the Mel-frequency cepstral coefficients 
+
+
+Observations:
+1) ZC: 190 and above indicate UNVOICED regions.
+ 
+2) LPC: -3.2741 to -0.4602 indicate VOICED regions
+       0.1449 to  -2.8705 indicate UNVOICED regions
+ 
+3) ENERGY: 0.005 and above indicate VOICED regions
+ 
+4) If the energy level and zero-crossing rate of 3 successive frames is high it is a starting point.
+After the starting point if the energy and zero-crossing rate for 5 successive frames are low it is the end point.
+  

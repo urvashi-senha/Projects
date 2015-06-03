@@ -1,0 +1,130 @@
+<html>
+
+    <head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+
+    </head>
+
+    <body>
+
+
+	<!-- ************************************************* -->
+	<div id="header">
+
+	    <p class="head"> SAY IT </p>
+	    <p class="subhead">Help Us Pronounce</p>
+
+	    <div class="nav">
+
+
+		<ul>
+		    <li><a href="home.html">Home</a></li>
+		    <li class="selected"><a href="search.html">Search</a></li>
+<!--		    <li><a href="addword2.html">Add Word</a></li>
+		    <li><a href="addreq.html">Post a request</a></li>
+		    <li><a href="displayallwords.html">Display all</a></li>
+		    <li class="festival"><a href="fest.html">Festival</a></li>-->
+		</ul>
+	    </div>
+	</div>
+	<!-- ************************************************* -->
+
+
+	<div id="body">
+
+	   <div class="addword"> 
+
+		    <div class="heading">IMPROVE PRONOUNCIATION</div>
+
+	 	<div class="about">
+		    {{message}}
+		    <form action="addword4.html/" method = "POST" enctype="multipart/form-data">
+			{% csrf_token %}
+		    <table>
+			<tr><td><span class="red">*</span>Word:</td><td>{{w}}</td></tr>
+			<tr><td>Record:</td> 
+
+			  <td> <button class="btn btn-default" onclick="window.open('record.html/','_blank','resizable=yes');return false;"> Record Pronunciation </button> </td>
+			</tr>
+			<tr><td><span class="red">*</span>Upload:</td>
+			<td>Upload your saved recording or any other audio file</td>
+<tr><td></td><td><input type="file" name="audiofile"></td></tr>
+	    
+			<tr>
+			    <td>Phonemic Breakup :</td>
+			    <td style="vertical-align: middle"><input type="text" value="{{m}}" name="m2">
+	    <a href="javascript:void(0);"title=" Help "onClick=window.open("help.html","Ratting","width=550,height=750,0,status=0,scrollbars=1");><img src="{{STATIC_URL}}images/help.jpeg " alt ="" width="35px" height="30px"></a></td>
+    </tr>
+    <tr><td></td><td>Eg:['f' , 'ae' , 't'] for Fat</td></tr>
+		       <tr>
+			   <td>Word Type</td>
+			   <td>
+			      <select name="pos">
+				   <option value="Proper Noun">Proper Noun</option>
+				   <option value="First Name">First Name</option>
+				   <option value="Last Name">Last Name</option>
+				   <option value="Noun">Noun</option>
+				   <option value="Verb">Verb</option>
+				   <option value="Adjective">Adjective</option>
+				   <option value="Adverb">Adverb</option>
+				</select>
+			   </td>
+		       </tr>
+		       <tr>
+			   
+			   
+			       <td>Origin</td>
+			   <td>
+			       <input type= "text" value = "" name="lang" id="lang"> 
+			   </td>
+			  
+		       </tr>
+			<tr><td></td><td>For eg: Indian, American , Chinese etc </td></tr>
+		       <tr><td>Meaning</td><td><textarea rows="3" cols="35" name="meaning"></textarea></td></tr>
+
+		     
+	    <tr>
+		<td>
+		</td>
+		<td>
+	    <tr><td></td><td><input type="hidden" name="w" value="{{w}}"><input type="hidden" name="m" value="{{m}}"><input type="submit" value="Upload"/></td></tr>
+	</table>
+
+    </form> 
+Fields marked <span class="red">*</span> are required.
+	</div>	 
+	
+	<div class="pic"><a href="javascript:void(0);"title=" Help "onClick=window.open("help.html","Ratting","width=550,height=750,0,status=0,scrollbars=1");>
+	    <img src="{{STATIC_URL}}images/addword.jpeg" alt=""></a>
+	</div>
+
+
+    </div>	
+
+
+
+
+</div>
+<!-- ************************************************* -->
+
+<div id="footer">
+
+    <div class="footer">
+	<table>
+	    <tr>
+				    <td class = "links"><a href="">Contact us</a></td>
+				    <td class="links"><a href="">Admin Site</a></td>
+				    <td class="links"><a href= "">Feedback</a></td>
+				</tr>
+			</table>
+				
+		</div>
+		
+	
+	</div>
+
+<!-- ************************************************* -->
+
+</body>

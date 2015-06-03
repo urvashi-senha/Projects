@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/pic_pol_txt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Politician"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
+
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="129dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+    
+    <TextView
+        android:id="@+id/pic_con_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding= "40dp"
+        android:layout_weight="1.89"
+        android:text="Content"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/pic_hd_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.89"
+        android:padding="40dp"
+        android:text="Has_done"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+    </LinearLayout>
+ 
+   
+ 
+</LinearLayout>

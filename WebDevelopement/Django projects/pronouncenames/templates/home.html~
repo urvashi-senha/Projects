@@ -1,0 +1,149 @@
+<html>
+
+<head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+ 
+</head>
+
+<body>
+<!-- ************************************************* -->
+	<div id="header">
+	
+		<p class="head"> SAY IT </p>
+		<p class="subhead">Help Us Pronounce</p>
+
+		<div class="nav">
+			<ul>
+				<li class="selected"><a href="">Home</a></li>
+				<!--<li><a href="search.html">Search</a></li>
+				<li><a href="addreq.html">Post a request</a></li>
+				<li><a href="displayallwords.html">Display all</a></li>
+				<li>
+				<form action = "search.html/" method = 'POST'>
+				     {% csrf_token %}
+					    <input type="text" value="" placeholder="Search Pronounciations..." name="s" id="search">
+					    <input type="image" src="{{STATIC_URL}}images/searchbutton.png" name="searchBtn" id="searchBtn" alt="Search">
+					</form>
+					</li>
+					-->
+			</ul>
+		</div>
+	</div>
+
+<!-- ************************************************* -->
+
+
+	<div id="body">
+
+		
+			
+			<div class="intro">
+			
+			    <img src="{{STATIC_URL}}images/talk3.jpg" alt ="" width="300px" height="300px"> 
+			<!--	<img src="images/phon4.jpeg" alt ="" width="300px" height="300px"> -->
+				
+			</div>
+			<div class="home">
+			
+				<div class="heading"></div>
+				<div class="about">
+					A few lines.
+				</div>
+			</div>
+			
+		<div class="searchbox">
+			<h2></h2>
+				<form action = "search.html/" method = 'POST'>
+				  
+				     {% csrf_token %}
+					    <input type="text" value="" placeholder="Search Pronounciations..." name="s" id="search">
+					    <input type="image" src="{{STATIC_URL}}images/searchbutton.png" name="searchBtn" id="searchBtn" alt="Search">
+					</form>
+		</div>	    
+			<div class="header">
+			<ul>
+				<!--<li>
+				<a href="search.html/">	
+				    <div><img src="{{STATIC_URL}}images/searching2.png" alt ="1"> 
+						<h2>SEARCH</h2>
+						<p> Search for the pronunciation of a word </p>
+					</div></a>
+					</li>-->
+
+				<li>
+				<a href="addword2.html/">
+					<div>
+					    <img src="{{STATIC_URL}}images/add.jpg" alt ="2">
+						<h2>ADD WORDS</h2>
+						<p> Increase the number of words known to us </p> 
+					</div></a>
+				</li>
+
+				<li>
+				<a href="addword2.html/">
+					<div>
+					    <img src="{{STATIC_URL}}images/req.jpg" alt ="3" >
+						<h2>IMPROVE</h2>
+						<p>Improve the pronounciation of a word </p> 
+					    </div>
+					</a>
+				</li>
+				<li>
+				<a href="fest.html/">
+					<div>
+					    <img src="{{STATIC_URL}}images/listen.png" alt ="4">
+						<h2>LISTEN</h2>
+						<p> Hear the default pronumciation </p> 
+					    </div>
+					</a>
+				</li>				
+			</ul>
+		</div>
+			
+<!--
+		<div class="listen">
+			<h2>LISTEN TO PRONOUNCIATION</h2>
+					        <form action="fest2.html/" method="POST">
+					                  {% csrf_token %}
+							  <input type="text" placeholder="Enter Word.."  name="w" id="w">
+						              <input type="submit" value="Submit">
+						            </form>
+		</div>	    
+			
+
+		 <div class="board">
+		     <img src="{{STATIC_URL}}images/req.png" alt ="" height="100" width="200" >
+
+		     <div class="requests">
+			 {% if record %}
+			 {% load req %}{% req record words %}
+			 {% endif %}
+
+		     </div>
+
+		</div> 
+
+		
+		-->
+		
+	</div>
+<!-- ************************************************* -->
+	
+	<div id="footer">
+
+			<table>
+				<tr>
+				    <td class = "links"><a href="">Contact us</a></td>
+				    <td class="links"><a href="">Admin Site</a></td>
+				    <td class="links"><a href= "">Feedback</a></td>
+				</tr>
+			</table>
+				
+		
+	
+	</div>
+<!-- ************************************************* -->
+
+</body>

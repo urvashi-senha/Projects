@@ -1,0 +1,107 @@
+timestamp: 2013-08-26T00:37:20.523940
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2013-08-26T00:37:20.719668
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2013-08-26T00:37:20.865339
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-08-26T00:37:21.011263
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2013-08-26T00:37:21.166012
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2013-08-26T00:37:21.346405
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2013-08-26T12:57:25.617767
+CREATE TABLE categories(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512)
+);
+success!
+timestamp: 2013-08-26T12:59:06.933509
+CREATE TABLE links(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    url CHAR(512),
+    username INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    category INTEGER REFERENCES categories (id) ON DELETE CASCADE,
+    date_posted TIMESTAMP,
+    time_posted TIMESTAMP
+);
+success!
+timestamp: 2013-08-26T20:39:23.738311
+ALTER TABLE links ADD dislikes INTEGER;
+timestamp: 2013-08-26T20:39:23.946015
+ALTER TABLE links ADD likes INTEGER;
+timestamp: 2013-08-26T20:53:48.044801
+ALTER TABLE links ADD heading CHAR(512);
+timestamp: 2013-08-28T00:45:49.144718
+CREATE TABLE liked(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usr INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    link INTEGER REFERENCES links (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-08-28T00:45:49.345677
+CREATE TABLE disliked(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usr INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    link INTEGER REFERENCES links (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-08-28T01:05:45.891020
+CREATE TABLE comments(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usr INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    link INTEGER REFERENCES links (id) ON DELETE CASCADE,
+    commented CHAR(512)
+);
+success!
+timestamp: 2013-08-28T15:53:05.536563
+ALTER TABLE comments ADD time_com TIMESTAMP;
+timestamp: 2013-08-28T15:53:05.769553
+ALTER TABLE comments ADD date_com TIMESTAMP;
+timestamp: 2013-08-29T00:08:02.124318
+ALTER TABLE links ADD points INTEGER;
+timestamp: 2013-08-30T13:40:02.741134
+ALTER TABLE links ADD video_link CHAR(512);

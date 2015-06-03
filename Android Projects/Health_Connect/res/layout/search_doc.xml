@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+ 
+    <ViewFlipper
+        android:id="@+id/viewFlipper1"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" >
+ 
+        <include
+            android:id="@+id/listpic_layout"
+            layout="@layout/listpic_layout" />
+ 
+        <include
+            android:id="@+id/viewpic_layout"
+            layout="@layout/view_pic_layout" />
+    </ViewFlipper>
+ 
+</LinearLayout>

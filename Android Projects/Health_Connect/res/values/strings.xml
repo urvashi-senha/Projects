@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Health_Connect</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="Record">Record Heading</string>
+    <string name="Subject">Subject</string>
+    <string name="Upload">Upload</string>
+    <string name="Path">Path</string>
+    <string name="Browse">Browse</string>
+    <string name="title_activity_search_doc">Search_doc</string>
+
+</resources>

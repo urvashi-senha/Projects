@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+<h1>Employee Functions</h1><br>
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/add_customer"><button input="button" name="add_cus">Add Customer</button></a><br><br>
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/edit_cust"><button input="button" name="edit_cus">Edit Customer</button></a><br><br>
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/add_sale"><button input="button" name="add_model">Buy Product</button></a><br><br>
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/order_bike"><button input="button" name="bike">Order Bike</button></a><br><br>
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/sell_bike"><button input="button" name="bike2">Deliver Bike</button></a><br><br>
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/add_expense"><button input="button" name="exp">Add Expense</button></a><br><br>
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/list"><button input="button" name="list">View Waiting List</button></a><br><br>
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/search"><button input="button" name="search">Search</button></a><br><br>
+{{if ee=='Manager' :}}
+<a href="http://127.0.0.1:8000/GoGreen_Motors_2/default/order_bikes"><button input="button" name="order">Send Order</button></a>
+{{pass}}

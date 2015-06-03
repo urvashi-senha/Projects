@@ -1,0 +1,96 @@
+<html>
+
+<head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+ 
+</head>
+
+<body>
+<!-- ************************************************* -->
+	<div id="header">
+	
+		<p class="head"> PRONOUNCE NAMES</p>
+		<p class="subhead">Help Us Pronounce</p>
+
+		<div class="navigation">
+
+			<ul>
+				<li><a href="home.html">Home</a></li>
+				<li><a href="search.html">Search</a></li>
+				<li><a href="addword.html">Add Word</a></li>
+				<li><a href="addreq.html">Post a request</a></li>
+				<li class="selected"><a href="">Display all</a></li>
+				<li class="festival"><a href="">Festival</a></li>
+			</ul>
+		</div>
+	</div>
+
+<!-- ************************************************* -->
+
+
+	<div id="body">
+
+			<div class="displayallwords">
+			
+				<div class="heading">All words:</div>
+
+			</div>	
+			{% if words %}	
+			<div class="displayall_list">
+			    <table>
+				
+				<th> WORD </th>
+				<th> PHONEMIC BREAKUP </th>
+				<th> AUDIO </th>
+				<!--<th> VOTE UP </th>
+				<th> VOTE DOWN </th>-->
+			     {% for r in words %}
+			    <tr>	
+				<td>{{r.name}}</td>
+			    <td>{{r.phomene}}</td>
+			   <td><audio controls="controls" controls="download"> <source src="{{ r.audiofile.url }}" type="audio/mp3"></audio></td>
+			   <!-- <td>	<form action="" method = "POST">
+				    	    {% csrf_token %}
+					    	    <input type="hidden" id = "word1" name= "word1" value="{{r.id}}"/>
+						    <INPUT TYPE="image" SRC="{{STATIC_URL }}images/up.png" WIDTH="50"  HEIGHT="50" BORDER="0" name ="up" id="up" ALT="SUBMIT!" value="up"> 	    
+
+					    </form></td>
+					    <td><form action="" method = "POST">
+						    	{% csrf_token %}
+							<input type="hidden" id = "word2" name= "word2" value="{{r.id}}"/>
+							<INPUT TYPE="image" SRC="{{STATIC_URL }}images/down.png" WIDTH="50"  HEIGHT="50" BORDER="0" name ="down" id="down" ALT="SUBMIT!" value="down">
+						</form></td> -->
+					    </tr>
+					    {% endfor %}
+					</table>
+				
+		
+		    </div>
+			{% endif %}
+		
+
+		
+	</div>
+<!-- ************************************************* -->
+	
+	<div id="footer">
+
+		<div class="footer">
+			<table>
+				<tr>
+					<td>Contact us</td>
+					<td>Admin Site</td>
+					<td>Feedback</td>
+				</tr>
+			</table>
+				
+		</div>
+		
+	
+	</div>
+
+<!-- ************************************************* -->
+
+</body>

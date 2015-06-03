@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<form action="edit_model_3" method="POST">
+    Model No : {{=record[0]['Model_no']}}
+    <br> Name : <input type="text" value="{{=record[0]['Name']}}" name="nam">
+    <br> Selling Price :  <input type="text" value="{{=record[0]['Selling_price']}}" name="prc">
+    <br> Waiting Time : <input type="text" value="{{=record[0]['Waiting_time']}}" name="tim">
+    <br> Availablity : <input type="text" value="{{=record[0]['Availability']}}" name="avb">
+    <input type="hidden" value="{{=eid}}" name="eid">
+    <br> <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,79 @@
+{{extend 'layout.html'}}
+<h2>My Posts</h2>
+
+{{for i in range(len(lists)):}}
+Heading : <a href="{{=lists[i]['links.url']}}" target="_blank">{{=lists[i]['links.heading']}}</a><br>
+{{vi=str(lists[i]['links.video_link'])}}
+{{ if vi!='None':}}
+{{v=vi.split('=')}}
+Video Link : <iframe width="560" height="315" src="//www.youtube.com/embed/{{=v[1]}}" frameborder="0" allowfullscreen></iframe><br>
+{{pass}}
+
+{{da=str(lists[i]['links.date_posted'])}}
+{{dat=da.split()}}
+{{ti=str(lists[i]['links.time_posted'])}}
+{{tim=ti.split()}}
+
+On : {{=dat[0]}}<br>
+At : {{=tim[1]}}<br>
+ 
+
+Category : {{=lists[i]['links.category']}}<br>
+Likes : {{=lists[i]['links.likes']}}<br>
+Dislikes : {{=lists[i]['links.dislikes']}}<br>
+
+
+
+{{for k in range(len(com)):}}
+{{if lists[i]['links.id']==com[k]['comments.link']:}}
+Comment : {{=com[k]['comments.commented']}}	
+<br>
+{{da=str(com[k]['comments.date_com'])}}
+{{dat=da.split()}}
+{{ti=str(com[k]['comments.time_com'])}}
+{{tim=ti.split()}}
+On : {{=dat[0]}}<br>
+At : {{=tim[1]}}<br>
+
+
+
+{{for m in range(len(ids)):}}
+{{if com[k]['comments.usr']==ids[m]['auth_user.id']:}}
+{{f=ids[m]['auth_user.first_name']}}
+    {{l=ids[m]['auth_user.last_name']}}
+    {{n=f + ' ' + l}}
+    {{pass}}
+{{pass}}
+by: {{=n}}<br><br>
+{{pass}}
+{{pass}}
+<br>
+
+
+
+
+<form action="edit_post" method="POST">
+	<input type="submit" name="edit" value="Edit">
+    <input type="hidden" name="link" value="{{=lists[i]['links.id']}}">
+</form>
+<form action="del_post" method="POST">
+	<input type="submit" name="del" value="Delete">
+	 <input type="hidden" name="link" value="{{=lists[i]['links.id']}}">
+    <input type="hidden" name="a" value="{{=a}}">
+</form>
+<form action="like.html" method="POST">
+    <input type="hidden" name="link" value="{{=lists[i]['links.id']}}">
+    <input type="hidden" name="cat" value="{{=lists[i]['links.category']}}">
+    <input type="submit" name="likebutton" value="Like">
+</form>
+<form action="dislike.html" method="POST">
+    <input type="hidden" name="link" value="{{=lists[i]['links.id']}}">
+    <input type="hidden" name="cat" value="{{=lists[i]['links.category']}}">
+    <input type="submit" name="dislikebutton" value="Dislike">
+</form>
+<form action="comment.html" method="POST">
+    <input type="hidden" name="link" value= "{{=lists[i]['links.id']}}">
+    <input type="hidden" name="cat" value="{{=lists[i]['links.category']}}">
+    <input type="submit" name="commentbutton" value="Comment">
+</form>
+{{pass}}

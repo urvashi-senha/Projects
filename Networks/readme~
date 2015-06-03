@@ -1,0 +1,13 @@
+Urvashi Senha
+201225020
+
+run new.c in two different folders or terminals
+
+one is server and the other is client
+
+Commands are 
+IndexGet LongList
+Download <filename>
+IndexGet regEx <expression>
+FileHash Verify <filename>
+FileHash CheckAll

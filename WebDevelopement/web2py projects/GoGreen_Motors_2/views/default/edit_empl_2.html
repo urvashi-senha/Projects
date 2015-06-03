@@ -1,0 +1,16 @@
+{{extend 'layout.html'}}
+<form action="edit_emp_3" method="POST">
+    Employee Id :{{=eid}}
+<br>    Name : <input type="text" value="{{=record[0]['Name']}}" name="nam">
+<br>    Address : <input class="string" name="add" type="text" value="{{=record[0]['Address']}}" />
+<br>    Phone number : <input type="text" value="{{=record[0]['Ph_no']}}" name="no">
+<br>    Salary : <input type="text" value="{{=record[0]['Salary']}}" name="sal">
+<br>    Designation :<select name="deg">
+     	<option value="Manager">Manager</option>
+     	<option value="Team Leader">Team Leader</option>
+     	<option value="Executive">Executive</option>
+     			</select>
+    <br> Email_id : <input type="text" value="{{=record[0]['Email_id']}}" name="email">
+    <input type="hidden" name="eid" value="{{=eid}}">
+<input type="submit" value="Submit">
+</form>

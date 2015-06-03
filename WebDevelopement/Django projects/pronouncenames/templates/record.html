@@ -1,0 +1,226 @@
+<html>
+<head>
+
+	<title>Pronounce Names</title>
+
+ 
+</head>
+
+<body>
+
+<script>
+  
+ 
+ var my_Url = "{{ STATIC_URL|escapejs }}";
+
+  var audioContext;
+  var audioRecorder;
+  var _realAudioInput;
+  var recordWavWorker = new Worker('/static/js/enc/wav/recorderWorker.js');
+  
+  
+
+  function handlerStartUserMedia(stream) 
+  {
+
+	
+    // MEDIA STREAM SOURCE -> ZERO GAIN >
+    _realAudioInput = audioContext.createMediaStreamSource(stream);
+
+    audioRecorder = new Recorder(_realAudioInput);
+  }
+
+  function handlerErrorUserMedia(e) 
+  {
+      //logHTML('No live audio input: ' + e);
+  }
+
+
+  function startRecording(button) 
+  {
+
+      if(!audioRecorder)
+      {
+	  alert("Share your microphone to record ");
+	  return;
+      }
+ 
+    audioRecorder && audioRecorder.record();
+
+    //GUI
+    button.src ="{{STATIC_URL}}images/box_grey.png";
+    button.disabled = true;
+    button.nextElementSibling.disabled = false;
+
+ //   logHTML('Recording...');
+  }
+
+  function stopRecording(button) 
+  {
+
+    if(!audioRecorder)
+      return;
+
+
+    audioRecorder && audioRecorder.stop();
+
+    //GUI
+    button.previousElementSibling.src = "{{STATIC_URL}}images/record.png";
+    button.disabled = true;
+    button.previousElementSibling.disabled = false;
+
+//    logHTML('Stopped recording.');
+   }
+
+
+  window.onload = function init() 
+  {
+
+      window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
+
+      navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+
+      window.URL = window.URL || window.webkitURL;
+      
+      audioContext = new AudioContext;
+
+    //  logHTML('Audio context set up.');
+    //  logHTML('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+
+    navigator.getUserMedia({vide:false, audio: true}, handlerStartUserMedia, handlerErrorUserMedia);
+
+  };
+ 
+
+
+
+  var Recorder = function(source) 
+  {
+
+    var bufferLen = 4096;
+    var recording = false;
+
+    this.context = source.context;
+   // log.innerHTML += "in recorder.js\n";
+    
+    this.node = (this.context.createScriptProcessor || this.context.createJavaScriptNode).call(this.context, bufferLen, 1, 1);
+    this.node.connect(this.context.destination); 
+    this.node.onaudioprocess = function(e) 
+    {
+
+      if (!recording)
+        return;
+
+      var channelLeft = e.inputBuffer.getChannelData(0);
+
+    //  console.log('onAudioProcess' + channelLeft.length);
+
+      recordWavWorker.postMessage
+      ({
+        command: 'record',
+        buffer: channelLeft
+      });
+
+    }
+
+    source.connect(this.node);
+
+    this.record = function() 
+    {
+
+      if (recording)
+        return false;
+
+      recording = true;
+
+      var sampleRate = this.context.sampleRate;
+
+    //  console.log("Initializing WAV");
+     // log.innerHTML += "\n" + "Creating Empty WAV";
+
+      recordWavWorker.postMessage
+      ({
+        command: 'init',
+        config: 
+        {
+          sampleRate: sampleRate
+        }
+      });
+    }
+
+    this.stop = function() 
+    {
+
+      if (!recording)
+        return;
+
+      recordWavWorker.postMessage
+      ({
+        command: 'finish'
+      });
+      recording = false;
+    }
+
+    recordWavWorker.onmessage = function(e) 
+    {
+
+      var command = e.data.command;
+
+    //  console.log('recordWavWorker - onmessage: ' + command);
+
+      switch (command)
+      {
+        case 'wav':
+          endFile(e.data.buf, 'wav');
+          break;
+      }
+
+    };
+
+    function endFile(blob, extension) 
+    {
+
+      var url = URL.createObjectURL(blob);
+      var li = document.createElement('li');
+      var hf = document.createElement('a');
+     
+      hf.href = url;
+      hf.download = new Date().toISOString() + '.' + extension;
+      hf.innerHTML = 'SAVE File<br>';
+      
+      li.appendChild(hf);
+
+      var au = document.createElement('audio');
+      au.controls = true;
+      au.src = url;
+      li.appendChild(au);
+     
+ 
+     /* recordingslist.appendChild(li);*/
+      
+var table=document.getElementById("mytable");
+var newRow   = table.insertRow(table.rows.length);
+var newCell1  = newRow.insertCell(0);
+newCell1.appendChild(hf);
+var newCell2  = newRow.insertCell(1);
+newCell2.appendChild(au);
+hf.click();
+    }
+
+  };
+
+
+</script>
+
+Record Pronunciation here and save.</br>
+Upload using browse option.</br>
+<input type="image" style="height:40px;width:40px;" src="{{STATIC_URL}}images/record.png" onclick="startRecording(this);return false;"/>
+<button   class="btn btn-default"  onclick="stopRecording(this);return false;" disabled><img src="{{STATIC_URL}}images/stop.png" style="float:left;margin-left:-8px;margin-right:-10px" width="40" height="40"></button>
+<!--<ul id="recordingslist"></ul>-->
+<table id="mytable">
+<tr></tr>
+</table>
+
+
+</body>
+</html>

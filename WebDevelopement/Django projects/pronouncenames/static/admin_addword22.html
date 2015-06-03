@@ -1,0 +1,126 @@
+<html>
+
+    <head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+
+    </head>
+
+    <body>
+	<!-- ************************************************* -->
+	<div id="header">
+
+	    <p class="head"> PRONOUNCE NAMES</p>
+	    <p class="subhead">Help Us Pronounce</p>
+
+	    <div class="navigation">
+
+
+			<ul>
+				<li><a href="admin2.html">Home</a></li>
+				
+				<li >
+					<a>Search</a>
+					<ul>
+					    <li><a href="admin_search.html">Words</a></li>
+					    <li><a href="">Keys</a></li>
+					</ul>
+				</li>
+				
+				<li class="selected"><a href="">Add Word</a></li>
+				
+				<li>
+				<a>Display all</a>
+					<ul>
+					    <li><a href="admin_displayallwords.html">Words</a></li>
+					    <li><a href="">Keys</a></li>
+					</ul>
+				</li>
+				
+				<li class="festival"><a href="admin_fest.html">Festival</a></li>
+				
+				<li class="selected"><a href="adminlogout.html">LOGOUT</a></li>
+			</ul>
+	    </div>
+	</div>
+	<!-- ************************************************* -->
+
+
+	<div id="body">
+
+	    <div class="addword2">
+
+		<div class="heading">ADD WORD</div>
+
+		<div class="about">
+		    {{message}}
+		    <table>
+			<tr>
+			    <td>
+		    		Word : 
+			    </td>
+			    <td>
+				{{w}}
+			    </td>
+			</tr>
+			
+			<tr>
+			    <td>
+				Phonemic Breakup :
+			    </td>
+			    <td>
+				{% load for_loop %}{% for_loop m %}
+				
+			    </td>
+			</tr>
+			<tr>
+			    <td colspan="2"></td>
+		       </tr>
+			<tr>
+			    <td colspan="2">
+				 <form action="addword3.html/" method = "POST" enctype="multipart/form-data">
+				      {% csrf_token %}
+				      <input type= "submit" value="Improve Pronunciation!"/>
+				      <input type="hidden" value="{{w}}" name="w">
+				      <input type="hidden" value="{{m}}" name="m">
+				  </form>
+			    </td>
+		       </tr>
+	</table>
+    </form> 
+
+	</div>   
+	
+	<div class="pic">
+	   	    <img src="{{STATIC_URL}}images/addword.jpeg" alt=""> 
+	</div>
+
+
+    </div>	
+
+
+
+
+</div>
+<!-- ************************************************* -->
+
+<div id="footer">
+
+    <div class="footer">
+	<table>
+	    <tr>
+				    <td class = "links"><a href="">Contact us</a></td>
+				    <td class="links"><a href="admin2.html">Admin Site</a></td>
+				    <td class="links"><a href= "">Feedback</a></td>
+				</tr>
+			</table>
+				
+		</div>
+		
+	
+	</div>
+
+<!-- ************************************************* -->
+
+</body>

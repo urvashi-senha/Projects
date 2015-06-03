@@ -1,0 +1,211 @@
+<html>
+<head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+ 
+</head>
+
+<body>
+
+
+<!-- ************************************************* -->
+	<div id="header">
+	
+		<p class="head"> SAY IT</p>
+		<p class="subhead">Help Us Pronounce</p>
+
+		<div class="nav">
+
+
+			<ul>
+				<li><a href="home.html">Home</a></li>
+				<li class="selected"><a href="">Search</a></li>
+				<li><a href="names_list.html">List of Names</a></li>
+		<!--		<li><a href="addword.html">Add Word</a></li>
+		    <li><a href="addreq.html">Post a request</a></li>
+				<li><a href="displayallwords.html">Display all</a></li>
+				<li class="festival"><a href="fest.html">Festival</a></li> -->
+			</ul>
+		</div>
+	</div>
+<!-- ************************************************* -->
+
+
+	<div id="body">
+
+			<div class="search">
+			
+				<div class="heading">SEARCH</div>
+					
+				<div class="about">
+				    	<form action = "search.html/" method = 'POST'>
+					    {% csrf_token %}
+						<input type="text" placeholder="Search here..." name="s" id="s"/>
+						<button type="submit">Search</button>
+					</form>
+			        </div>   
+				
+		
+				<img src="{{STATIC_URL}}images/search.jpg " alt ="" > 
+
+			    </div>
+			    
+			{% if record %}	
+			<div class="results">
+			    <table>
+				<th style="width:200px;text-align:center"> WORD </th>
+				<th style="width:200px;text-align:center"> PHONEMIC BREAKUP </th>
+				<th style="width:170px;text-align:center"> AUDIO </th>
+				<th style="width:250px;tet
+				    xt-align:center"> CATEGORY </th>
+				<th style="width:250px;text-align:center"> LANGUAGE </th>
+				<th style="width:350px;text-align:center"> MEANING </th>
+				<th style="width:100px;text-align:center"> VOTE UP </th>
+				<th style="width:100px;text-align:center"> VOTE DOWN </th>
+				{% for r in record %}
+			    <tr>	
+				<td style="width:250px;text-align:center">{{r.name}}</td>
+			    <td style="width:250px;text-align:center">{{r.phomene}}</td>
+				<td style="width:170px;text-align:center">{% load audiofiles %}{% audiofiles r.audiofile.url %}<audio controls="controls" controls="download"> <source src="r.audiofile" type="audio/mp3"></audio></td>
+						<td style="width:250px;text-align:center">{% load info %}{% info r.pos %}</td>
+						<td style="width:250px;text-align:center">{% load info %}{% info r.origin %}</td>
+						<td style="width:350px;text-align:center">{% load info %}{% info r.meaning %}</td>
+						
+						<td style="width:100px;text-align:center">	
+						    <form action="search.html/" method = "POST">
+							{% csrf_token %}
+							<input type="hidden" id = "word1" name= "word1" value="{{r.pk}}"/>
+						    <INPUT TYPE="image" SRC="{{STATIC_URL }}images/up.png" WIDTH="30"  HEIGHT="30" BORDER="0" name ="up" id="up" ALT="SUBMIT!" value="up"> 	    
+
+					    </form>
+					</td>
+					    <td style="width:100px;text-align:center">
+						<form action="search.html/" method = "POST">
+						    	{% csrf_token %}
+							<input type="hidden" id = "word2" name= "word2" value="{{r.pk}}"/>
+							<INPUT TYPE="image" SRC="{{STATIC_URL }}images/down.png" WIDTH="30"  HEIGHT="30" BORDER="0" name ="down" id="down" ALT="SUBMIT!" value="down">
+						</form>
+					    </td>
+					    </tr>
+
+				    {% endfor %}
+					</table>
+				    </div>
+				    <div class="correct">
+					
+				 <form action="addword3.html/" method = "POST" enctype="multipart/form-data">
+				     {% csrf_token %}
+				      <input type= "submit" value="Improve Pronunciation!"/>
+				      <input type="hidden" value="{{w}}" name="w">
+				</form>
+				    </div>
+		
+				    {% else %}
+				    {% if w %}
+			    <div class="message">	    
+			    {{message}}
+				</div>
+
+				    <div class="results2">
+		  <form action="addword4.html/" method = "POST" enctype="multipart/form-data">
+			{% csrf_token %}
+
+		    <table>
+			<tr>
+			    <td>
+		    		<span class="red">*</span>Word:
+			    </td>
+			    <td>
+				{{w}}
+			    </td>
+			</tr>
+			<tr><td></td><td></td></tr>
+			<tr><td>Record:</td>
+			     <td> <button class="btn btn-default" onclick="window.open('record.html/','_blank','resizable=yes');return false;"> Record Pronunciation </button> </td>
+			    
+			</tr>
+			<tr><td><span class="red">*</span>Upload:</td>
+			<td>Upload your saved recording or any other audio file</td>
+<tr><td></td><td><input type="file" name="audiofile"></td></tr>
+			
+			<tr><td></td><td></td></tr>
+			    <td>
+				Phonemic Breakup :
+			    </td>
+			    <td style="vertical-align: middle"><input type="text" value="{{m}}" name="m2">
+			    <a href="javascript:void(0);"title=" Help "onClick=window.open("help.html","Ratting","width=550,height=750,0,status=0,scrollbars=1");>
+			    	<img src="{{STATIC_URL}}images/help.jpeg " alt ="" width="35px" height="30px">
+			    </a>
+			</td>
+		    </tr>
+		    <tr><td></td>
+			<td> Eg:['f' , 'ae' , 't'] for Fat</td>
+		    </tr>
+		   </tr>
+		       <tr>
+			   <td>Word Type</td>
+			   <td>
+			       <select name="pos">
+				   <option value="Proper Noun">Proper Noun</option>
+				   <option value="First Name">First Name</option>
+				   <option value="Last Name">Last Name</option>
+				   <option value="Noun">Noun</option>
+				   <option value="Verb">Verb</option>
+				   <option value="Adjective">Adjective</option>
+				   <option value="Adverb">Adverb</option>
+				</select>
+			   </td>
+		       </tr>
+		       <tr>
+			   <td>Origin</td>
+			   <td>
+			       <input type= "text" value = "" name="lang" id="lang"> 
+			   </td>
+		       </tr>
+		       <tr><td></td><td>For eg: Indian, American , Chinese etc </td></tr>
+		       <tr><td>Meaning</td><td><textarea rows="3" cols="35" name="meaning"></textarea></td></tr>
+
+		  
+		     
+	    
+	    <tr>
+		<td>
+		</td>
+		<td>
+		    <input type="hidden" name="w" value="{{w}}">
+		    <input type="hidden" name="m" value="{{m}}">
+		  <input type="submit" value="Upload"/> 
+		    </td>
+		</tr>
+	  
+	</table>
+Fields marked <span class="red">*</span> are required.
+		</form>	{% endif %}
+				    </div>
+			{% endif %}
+		
+
+		
+	</div>
+<!-- ************************************************* -->
+	
+	<div id="footer">
+
+		<div class="footer">
+			<table>
+				<tr>
+				    <td class = "links"><a href="">Contact us</a></td>
+				    <td class="links"><a href="">Admin Site</a></td>
+				    <td class="links"><a href= "">Feedback</a></td>
+				</tr>
+			</table>
+				
+		</div>
+		
+	
+	</div>
+
+<!-- ************************************************* -->
+
+</body>

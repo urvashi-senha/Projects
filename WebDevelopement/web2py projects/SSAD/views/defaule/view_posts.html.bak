@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+<h2>My Posts</h2>
+
+{{for i in range(len(lists)):}
+Heading : <a href="{{=lists[i]['links.url']}}" target="_blank">{{=lists[i]['links.heading']}}</a><br>
+Category : {{=lists[i]['links.category']}}<br>
+Likes : {{=lists[i]['links.likes']}}<br>
+Dislikes : {{=lists[i]['links.dislikes']}}<br>
+<form action="edit_post" method="POST">
+	<input type="submit" name="edit" value="Edit">
+</form>
+<form action="del_post" method="POST">
+	<input type="submit" name="del" value="Delete">
+</form>
+{{pass}}

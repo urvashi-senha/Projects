@@ -1,0 +1,107 @@
+<html>
+
+    <head>
+
+	<title>Pronounce Names</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css">
+
+    </head>
+
+    <body>
+	<!-- ************************************************* -->
+	<div id="header">
+
+	    <p class="head"> PRONOUNCE NAMES</p>
+	    <p class="subhead">Help Us Pronounce</p>
+
+	    <div class="navigation">
+
+
+		<ul>
+		    <li><a href="home.html">Home</a></li>
+		    <li><a href="search.html">Search</a></li>
+		    <li class="selected"><a href="">Add Word</a></li>
+		    <li><a href="addreq.html">Post a request</a></li>
+		    <li><a href="displayallwords.html">Display all</a></li>
+		    <li class="festival"><a href="fest.html">Festival</a></li>
+		</ul>
+	    </div>
+	</div>
+	<!-- ************************************************* -->
+
+
+	<div id="body">
+
+	    <div class="addword">
+
+		<div class="heading">ADD WORD</div>
+
+		<div class="about">
+		    {{message}}
+		    <form action="" method = "POST" enctype="multipart/form-data">
+			{% csrf_token %}
+		    <table>
+			<tr>
+			    <td>
+		    		{{ form.name.label_tag }}
+			    </td>
+			    <td>
+				{{form.name}}
+			    </td>
+			</tr>
+			
+			<tr>
+			    <td>
+				{{form.phomene.label_tag}}
+			    </td>
+			    <td>
+				{{form.phomene}}
+			    </td>
+		       </tr>
+		       <tr><td>{{form.pos.label_tag}}</td><td>{{form.pos}}</br>{{form.pos.help_text}}</td></tr>
+	    <tr><td>{{form.origin.label_tag}}</td><td>{{form.origin}}</td></tr>
+	    <tr><td>{{form.gender.label_tag}}</td><td>{{form.gender}}</td></tr>
+	    <tr><td>{{form.f_l_name.label_tag}}</td><td>{{form.f_l_name}}</td></tr>
+	    <tr><td>{{form.meaning.label_tag}}</td><td>{{form.meaning}}</td></tr>
+
+
+	    <tr><td>{{form.audiofile.label_tag}}</td><td>{{form.audiofile}}</td></tr>
+	    <tr><td>record:</td> <td> <a href="recindex.html">CLICK TO RECORD</a></td></tr>
+	    <tr><td></td><td><input type="submit" value="Upload"/></td></tr>
+	</table>
+    </form> 
+
+	</div>   
+	
+	<div class="pic">
+	   	    <img src="{{STATIC_URL}}images/addword.jpeg" alt=""> 
+	</div>
+
+
+    </div>	
+
+
+
+
+</div>
+<!-- ************************************************* -->
+
+<div id="footer">
+
+    <div class="footer">
+	<table>
+	    <tr>
+				    <td class = "links"><a href="">Contact us</a></td>
+				    <td class="links"><a href="admin2.html">Admin Site</a></td>
+				    <td class="links"><a href= "">Feedback</a></td>
+				</tr>
+			</table>
+				
+		</div>
+		
+	
+	</div>
+
+<!-- ************************************************* -->
+
+</body>

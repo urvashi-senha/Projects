@@ -1,0 +1,9 @@
+{{extend 'layout.html'}}
+YOUR COMMENT:
+<form action="add_comment.html" method="POST">
+	<textarea rows="4" cols="40" name="comment"></textarea> <br />
+    <input type="hidden" name="ids" value="{{=ids}}">
+    <input type="hidden" name="link" value="{{=i}}">
+    <input type="hidden" name="cat" value="{{=cat}}">
+	<input type="submit" value="Submit" />
+</form>

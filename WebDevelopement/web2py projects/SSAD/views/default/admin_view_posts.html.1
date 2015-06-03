@@ -1,0 +1,40 @@
+{{extend 'layout.html'}}
+{{for i in range(len(lists)):}}
+Heading : <a href="{{=lists[i]['links.url']}}" target="_blank">{{=lists[i]['links.heading']}}</a><br>
+{{vi=str(lists[i]['links.video_link'])}}
+{{ if vi!='None':}}
+{{v=vi.split('=')}}
+{{=v}}
+Video Link : <iframe width="560" height="315" src="//www.youtube.com/embed/{{=v[1]}}" frameborder="0" allowfullscreen></iframe><br>
+{{pass}}
+
+
+
+Category : {{=lists[i]['links.category']}}<br>
+Likes : {{=lists[i]['links.likes']}}<br>
+Dislikes : {{=lists[i]['links.dislikes']}}<br>
+
+{{for k in range(len(com)):}}
+{{if lists[i]['links.id']==com[k]['comments.link']:}}
+Comment : {{=com[k]['comments.commented']}} 
+<br>
+{{da=str(com[k]['comments.date_com'])}}
+{{dat=da.split()}}
+{{ti=str(com[k]['comments.time_com'])}}
+{{tim=ti.split()}}
+On : {{=dat[0]}}<br>
+At : {{=tim[1]}}<br>
+
+
+
+{{for m in range(len(ids)):}}
+{{if com[k]['comments.usr']==ids[m]['auth_user.id']:}}
+{{f=ids[m]['auth_user.first_name']}}
+    {{l=ids[m]['auth_user.last_name']}}
+    {{n=f + ' ' + l}}
+    {{pass}}
+{{pass}}
+by: {{=n}}<br><br>
+{{pass}}
+{{pass}}
+<br>

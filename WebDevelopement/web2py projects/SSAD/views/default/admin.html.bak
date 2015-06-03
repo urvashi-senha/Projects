@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+<h1>WELCOME TO ADMIN HOME PAGE</h1>
+
+<a href="http://127.0.0.1:8000/SSAD/default/add_category"><button input="button" name="addctg">Add Category </button></a>
+<a href="http://127.0.0.1:8000/SSAD/default/delete_user"><button input="button" name="delusr">Remove User</button></a>
+<a href="http://127.0.0.1:8000/SSAD/default/delete_post_admin_1"><button input="button" name="delpost">Delete Post</button></a>

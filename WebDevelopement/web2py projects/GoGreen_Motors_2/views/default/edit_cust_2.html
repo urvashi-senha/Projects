@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<form action="edit_cust_3" method="POST">
+    Customer ID : {{=record[0]['Customer_ID']}}
+    <br> Name : <input type="text" value="{{=record[0]['Name']}}" name="nam">
+    <br> Address : <input type="text" value="{{=record[0]['Address']}}" name="add">
+    <br> Phone no : <input type="text" value="{{=record[0]['Ph_no']}}" name="no">
+    <br> Date of Birth : <input type="text" value="{{=record[0]['Date_of_birth']}}" name="dob">
+    <input type="hidden" value="{{=eid}}" name="eid">
+    <br><input type="submit" value="Submit" >
+</form>
